@@ -36,10 +36,10 @@ jobs:
     - name: Build and tag Docker image
       run: |
         docker build -t my_ml_app:latest .
-        docker tag my_ml_app:latest ${{ secrets.DOCKER_USERNAME }}/my_ml_app:latest
+        docker tag my_ml_app:latest bcstryker/my_ml_app:latest
 
     - name: Push Docker image to Docker Hub
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/my_ml_app:latest
+      run: docker push bcstryker/my_ml_app:latest
 
     - name: Run tests in Docker container
       run: docker run my_ml_app:latest pytest
